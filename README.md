@@ -40,15 +40,15 @@ Very simple useful search engine based web browser
 
 #### Go to project path
 
- - go to "Rex/rex" directory
+- `$ cd Rex/rex`
 
 #### run npm installer 
 
-- `npm i`
+- `$ npm i`
 
 #### start project
 
-- `npm start`
+- `$ npm start`
 
 
 # Futures
