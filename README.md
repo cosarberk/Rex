@@ -10,8 +10,8 @@ Very simple useful search engine based web browser
 
 |  Operating System   |  Download Link 
 | -------------- | -------:|
-| `For Windows :` |  [Rex-Browser.exe](http://localhost/) |
-| `For MacOs :`   |   [Rex-Browser.dmg](http://localhost/) |
+| `For Windows :` |  [Rex-Browser.exe](https://berkcosar.com/downloads/Rex-Browser-v1.0.0-2021.exe) |
+| `For MacOs :`   |  [Rex-Browser.dmg](https://berkcosar.com/downloads/Rex-Browser-v1.0.0-2021.dmg) |
 
 ## Basic Usage
 
