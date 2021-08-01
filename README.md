@@ -36,7 +36,9 @@ Very simple useful search engine based web browser
 
 #### Download rex project.
 
- ``` $ git clone https://github.com/cosarberk/Rex.git```
+ ```
+    $ git clone https://github.com/cosarberk/Rex.git
+```
 
 #### Go to project path
 
