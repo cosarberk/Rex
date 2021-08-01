@@ -46,11 +46,11 @@ Very simple useful search engine based web browser
 
 #### run npm installer 
 
-`npm i`
+- `npm i`
 
 #### start project
 
-`npm start`
+- `npm start`
 
 
 # Futures
