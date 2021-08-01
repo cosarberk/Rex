@@ -1,0 +1,1 @@
+electron-packager . Rex-Browser --overwrite --asar --platform=win32 --arch=x64 --icon=E:\rex_windows\rex\asset\rex.ico --prune=true --out=build --version-string.CompanyName=Rex --version-string.FileDescription=CE --version-string.ProductName="Rex"
