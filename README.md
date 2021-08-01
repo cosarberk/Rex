@@ -1,6 +1,6 @@
 # Rex Browser
 
-![](https://github.com/cosarberk/Rex/blob/main/designs/rex_180X180.png)
+![](https://github.com/cosarberk/Rex/blob/main/REX/designs/rex_180X180.png)
 
 
 Very simple useful search engine based web browser
@@ -15,7 +15,7 @@ Very simple useful search engine based web browser
 
 ## Basic Usage
 
-![](https://github.com/cosarberk/Rex/blob/main/designs/rexusage.gif)
+![](https://github.com/cosarberk/Rex/blob/main/REX/designs/rexusage.gif)
 
 - You write your search words and press enter. after clicked result's page will open on right browser panel.
 
@@ -25,7 +25,7 @@ Very simple useful search engine based web browser
 ### And find on page option works on all opened pages. :smiley:
 
 
-![](https://github.com/cosarberk/Rex/blob/main/designs/rexfind.gif)
+![](https://github.com/cosarberk/Rex/blob/main/REX/designs/rexfind.gif)
 
 
 ----------------------
