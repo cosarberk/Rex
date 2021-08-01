@@ -38,11 +38,9 @@ Very simple useful search engine based web browser
 
 - `$ git clone https://github.com/cosarberk/Rex.git`
 
- for Macos :
- - go to "rex_macosx/rex" directory
- 
- for Windows :
- - go to "rex_windows/rex" directory
+#### Go to project path
+
+ - go to "Rex/rex" directory
 
 #### run npm installer 
 
