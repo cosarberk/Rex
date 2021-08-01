@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="./libs/faw/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/rex.css">
+  <script src="./libs/faw/js/all.js" ></script>
+  <title>REX</title>
+</head>
+<body>
+<div class="space">
+    <div class="icon_and_showhide">
+        <img style="width:100%;height:100%;" src="./images/rexs.png" >
+    </div>
+  <div id="search_panel" class="panel">
+      <div class="menu_panel">
+           <div style="width:60px;height:40px;"></div> 
+           <div title="Reload Page" id="reload" class="menu_btn"><i class="fas fa-sync"></i></div>
+           <div title="Open Bookmarks Panel" id="bookmarks" class="menu_btn"><i class="far fa-bookmark"></i></div>
+           <div title="Open Histroy Panel" id="history" class="menu_btn"><i class="far fa-clock"></i></div>
+           
+           <div title="Open word finder Panel" id="find" class="menu_btn"><i class="fas fa-search"></i></div>
+           <div title="Open DevvTools Panel" id="devtools" class="menu_btn"><i class="fas fa-code"></i></div>
+           <div title="Full Screen" id="fullscreen" class="menu_btn"><i class="fas fa-expand"></i></div>
+           <div title="Open Settings Panel" id="settings" class="menu_btn"><i class="fas fa-cog"></i></div>
+      </div>
+      <div class="input_panel">
+          <input class="rex_input" type="text" name="search" id="search_input" placeholder="write and press enter" >
+          <div id="search_progress" class="webprogress"></div>
+
+      </div>
+      <div class="result_panel"></div>
+  </div>
+
+  <div class="line"></div>
+
+  <div id="browser_panel" class="panel">
+      <div class="wordfind">
+          <div class="optionarea">
+              <div id="prev" class="findbtns"><i class="fas fa-caret-square-left"></i></div>
+              <div id="next" class="findbtns"><i class="fas fa-caret-square-right"></i></div>
+              <div id="matchcase" class="findbtns">Aa</div>
+              <div id="close" class="findbtns"><i class="fas fa-window-close"></i></div>
+          </div>
+          <div class="inputarea">
+              <input placeholder="write word" type="text" name="find" id="findinput">
+          </div>
+      </div>
+    <div  id="web_progress" class="webprogress"></div>
+ </div>
+
+  <div id="tabs_panel" class="panel">
+   
+
+ </div>
+
+ 
+</div>
+
+<script src="./js/rex.js" ></script>
+</body>
+</html>
+
+<script>
+
+    //panel resize scripts
+var wrapper = document.querySelector('.space');
+var box = null;
+var isHandlerDragging = false;
+var boxAminWidth = 60;
+var new_width = 0, current_width = 0;
+
+document.addEventListener('mousedown', function(e) {
+  if (e.target.classList.contains('line')) {
+    isHandlerDragging = true;
+    box = e.target.previousElementSibling;
+  }
+  
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!isHandlerDragging) {
+    return false;
+  }
+  
+ 	current_width = box.style.width;
+  
+ if ((new_width = e.clientX - box.offsetLeft - 8 ) >= boxAminWidth) {
+ 	box.style.width = new_width + 'px';
+ }
+  if(wrapper.lastElementChild.offsetLeft + wrapper.lastElementChild.offsetWidth > wrapper.offsetWidth) {
+  box.style.width = current_width;
+  }
+
+});
+
+document.addEventListener('mouseup', function(e) {
+  isHandlerDragging = false;
+});
+</script>
+
+
+<script>
+
+const $=(elem)=>{
+    return document.querySelector(elem)
+},
+$$=(elem)=>{
+    return document.querySelectorAll(elem)
+}
+
+
+
+const browser_area =$("#browser_panel"), search_input = $("#search_input"),icon_and_showhide=$(".icon_and_showhide"),menu_btnall=$$(".menu_btn"),
+REX = new rex(browser_area),findinput=$("#findinput"),findarea = $(".wordfind"),findbtnsall = $$(".findbtns") ; 
+
+
+var finderOptions={
+
+    forward:true,
+    findNext:true,
+    matchCase:false
+},matchcaseActive=0
+
+//listen enter key for search input
+search_input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    let val = search_input.value
+    REX.GIV(val)
+    search_input.value=""
+  }
+});
+
+//show hide panel
+icon_and_showhide.onclick=()=>{
+    REX.SHP();
+}
+
+
+//listen menu btn click
+const menu_actions = {
+    fullscreen:function(elem){
+         elem.webkitRequestFullscreen()
+    },
+    devtools:function(){
+        let activepage = $('[title=active]')
+        activepage.openDevTools()
+
+    },
+    reload:function(){
+        let activepage = $('[title=active]')
+        activepage.reload()
+
+    },
+    find:function(){
+        finderOptions.forward=true;
+            finderOptions.findNext=true;
+            finderOptions.matchCase=false;
+            matchcaseActive=0
+        findarea.style.display="flex"
+        findinput.focus()
+        LFB()
+    },
+    bookmarks:function(){
+       REX.OBP()
+    },
+    history:function(){
+        REX.OHP()
+    },
+    settings:function(){
+        REX.OSP()
+    },
+}
+
+
+const LMBC=()=>{
+    menu_btnall.forEach(E => {
+       E.onclick = (e)=>{
+            menu_actions[E.id](browser_area);
+           
+       }
+   });
+}
+
+
+
+//listen find words 
+findinput.oninput=(e)=>{
+    e.preventDefault()
+    let activepage = $('[title=active]')
+    let val =findinput.value
+    if (val) {
+        REX.SF(activepage,val,finderOptions)
+    }
+   
+    
+}
+
+findinput.addEventListener("keyup", function(e) {
+  if (event.keyCode === 13) {
+    e.preventDefault()
+    let activepage = $('[title=active]')
+    let val =findinput.value
+    if (val) {
+        REX.SF(activepage,val,finderOptions)
+    }
+   
+  }
+});
+
+
+
+//listen finder btns
+const LFB=()=>{
+    finderbtnsaction ={
+        prev:function(activepage){
+            finderOptions.forward=false
+            finderOptions.findNext=true
+            let val =findinput.value
+             if (val) {
+                 REX.SF(activepage,val,finderOptions)
+             }
+
+        },
+        next:function(activepage){
+            finderOptions.forward=true
+            finderOptions.findNext=true
+            let val =findinput.value
+             if (val) {
+                 REX.SF(activepage,val,finderOptions)
+             }
+
+        },
+        matchcase:function(activepage,bool){
+            finderOptions.matchCase=bool
+            let val =findinput.value
+             if (val) {
+                 REX.SF(activepage,val,finderOptions)
+             }
+
+
+        },
+        close:function(activepage){
+            finderOptions.forward=true;
+            finderOptions.findNext=true;
+            finderOptions.matchCase=false
+            //REX.SFIP(activepage,'clearSelection')
+           REX.CARF()//reset finder
+            findarea.style.display="none"
+            findinput.value=""
+        },
+    }
+
+
+    findbtnsall.forEach(E => {
+        E.onclick=()=>{
+            let activepage = $('[title=active]')
+            finderbtnsaction[E.id](activepage)
+
+            if (E.id=="matchcase") {
+                if (matchcaseActive==0) {
+                    matchcaseActive=1
+                    E.style.color="#367ede"
+                    finderbtnsaction[E.id](activepage,true)
+                }
+                else if (matchcaseActive==1) {
+                    E.style.color="#949AA7"
+                    matchcaseActive=0
+                    finderbtnsaction[E.id](activepage,false)
+                }
+               
+            }
+        }
+      
+    });
+
+}
+
+LMBC()
+//open first page
+REX.OP("https://github.com/cosarberk","0")
+
+</script>

@@ -1,0 +1,3 @@
+
+electron-packager . --overwrite --platform=darwin --arch=x64 --icon=asset/rex.icns --prune=true --out=build --version-string.CompanyName=Rex --version-string.FileDescription=CE --version-string.ProductName="Rex"
+

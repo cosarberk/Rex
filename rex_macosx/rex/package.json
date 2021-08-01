@@ -1,0 +1,30 @@
+{
+  "name": "rex",
+  "version": "1.0.0",
+  "description": "pratice search engine",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [
+    "pratice",
+    "search",
+    "engine",
+    "pratice",
+    "search",
+    "pratice",
+    "search",
+    "engine"
+  ],
+  "author": "Berk Cosar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "electron": "^13.1.7",
+    "jsdom": "^16.6.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^15.3.0"
+  }
+}
