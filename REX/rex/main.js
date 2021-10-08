@@ -31,14 +31,14 @@ var mainwin ,Hwin,Bwin,Swin
 function createWindow () {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize //get screen width and height
    mainwin = new BrowserWindow({  width: width, height: height,    minHeight:500, minWidth:800,
-    webPreferences: {nodeIntegration: true,  contextIsolation:false,webviewTag:true,    devTools: false, preload: path.join(__dirname, 'preload.js')}
+    webPreferences: {nodeIntegration: true,  contextIsolation:false,webviewTag:true,    devTools: true, preload: path.join(__dirname, 'preload.js')}
   })
 
-  mainwin.loadFile('./src/index.html')
+  mainwin.loadFile('./src/html/main.html')
 
 const Mtemplate = [{label:"Rex"}]
 const mainMenu = Menu.buildFromTemplate(Mtemplate)
-Menu.setApplicationMenu(mainMenu)
+//Menu.setApplicationMenu(mainMenu)
   increatefunc()
 }
 function createSettingWindow () {
@@ -47,7 +47,7 @@ function createSettingWindow () {
   modal:true,frame:false,parent:mainwin}
   })
 
-  Swin.loadFile('./src/settings.html')
+  Swin.loadFile('./src//html/settings.html')
 }
 function createHistoryWindow () {
    Hwin = new BrowserWindow({  width: 400, height: 400, modal:true,frame:false,parent:mainwin,backgroundColor:"#111519",
@@ -55,7 +55,7 @@ function createHistoryWindow () {
   }
   })
 
-  Hwin.loadFile('./src/history.html')
+  Hwin.loadFile('./src/html/history.html')
 }
 function createBookmarksWindow () {
    Bwin = new BrowserWindow({  width: 400, height: 600,  modal:true,frame:false,parent:mainwin,backgroundColor:"#111519",
@@ -63,7 +63,7 @@ function createBookmarksWindow () {
 }
   })
 
-  Bwin.loadFile('./src/bookmarks.html')
+  Bwin.loadFile('./src/html/bookmarks.html')
   //Bwin.loadURL(`file://${__dirname}/src/bookmarks.html`)
 
 }

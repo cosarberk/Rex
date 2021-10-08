@@ -63,7 +63,6 @@ Very simple useful search engine based web browser
 
 - Will add linux build
 - Group tabs by domain option
-- Will add shortcut keys (example:copy,paste)
 - Will add right click contextmenu option (for open link as new tab on the page viewer )
 - Will add plugin support
 - Will add language support

@@ -1,0 +1,25 @@
+:root {
+
+  --bg-color: #000004;
+  --panel-bg-color: #121315;
+  --panel-sec-color:#161618;
+  --color-card:#111519;
+  --color-card-hover:#1f262d;
+  --color-line: #222324;
+  --color-progress: #367ede;
+  --color-progress-end:"transparent";
+  --color-pregress-hover:#91b7e9;
+  --color-btn:#949AA7;
+  --color-btn-hover:#ddd;
+  --color-border:#232323;
+  --color-border-light:#444;
+  --color-input:#ccc;
+
+  --color-title:#82a1f5;
+  --color-link-title:#4372F5;
+  --color-desc:#aaa;
+  --color-alt-link:#777;
+  
+
+}
+
