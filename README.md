@@ -6,6 +6,10 @@
 Very simple useful search engine based web browser
 
 
+## Preview
+![](https://raw.githubusercontent.com/cosarberk/Rex/main/REX/designs/rexview.png)
+
+
 ## for immediate download and use
 
 |  Operating System   |  Download Link 
